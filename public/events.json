@@ -1,0 +1,29 @@
+[
+    {
+      "id": "evt_001",
+      "title": "Intro to Prompt Engineering Workshop",
+      "description": "Hands-on intro to prompting for LLM apps; bring a laptop.",
+      "faculty": "Engineering",
+      "tags": ["ai","swe","workshop"],
+      "level": "beginner",
+      "start": "2025-11-22T10:00:00-08:00",
+      "end": "2025-11-22T12:00:00-08:00",
+      "location": "ICICS X350",
+      "url": "https://example.com/rsvp",
+      "organizer": "UBC AI Club"
+    },
+    {
+      "id": "evt_002",
+      "title": "Sauder FinTech Networking Night",
+      "description": "Meet alumni in fintech. Pitches + open networking.",
+      "faculty": "Sauder",
+      "tags": ["finance","networking","entrepreneurship"],
+      "level": "intermediate",
+      "start": "2025-11-24T18:00:00-08:00",
+      "end": "2025-11-24T20:00:00-08:00",
+      "location": "Henry Angus 490",
+      "url": "https://example.com/fintech-night",
+      "organizer": "UBC Finance Club"
+    }
+  ]
+  

@@ -1,0 +1,218 @@
+:root {
+    /* === UBC-inspired palette === */
+    --ubc-blue: #002145;       /* primary UBC Blue (deep navy) */
+    --ubc-blue-500: #0055B8;   /* bright secondary blue for CTAs */
+    --ubc-blue-300: #4DA3FF;   /* lighter blue for hovers & focus */
+    --ubc-gold: #F2C100;       /* warm accent (draws attention) */
+  
+    /* Neutral & surfaces */
+    --bg-0: #000914;           /* page backdrop base */
+    --bg-1: #031328;           /* page backdrop mid */
+    --panel: rgba(6, 18, 40, 0.66); /* glassy panel/nav */
+    --card: rgba(8, 26, 54, 0.78);  /* card surface */
+    --border: rgba(255,255,255,0.10);
+  
+    /* Text */
+    --text: #F6F9FF;           /* high-contrast body */
+    --muted: #A9BED6;          /* secondary text */
+  
+    /* States */
+    --good: #2ED29A;
+    --warn: #FDD663;
+    --danger: #FF6B6B;
+  
+    /* Layout tokens */
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+  
+    --space-1: 6px;
+    --space-2: 10px;
+    --space-3: 14px;
+    --space-4: 18px;
+    --space-5: 22px;
+    --space-6: 28px;
+  
+    /* Shadows (soft, layered for depth without harshness) */
+    --shadow-1: 0 6px 24px rgba(0,0,0,.32);
+    --shadow-2: 0 2px 8px rgba(0,0,0,.25);
+  
+    /* Focus ring (gold = commitment cue) */
+    --focus: var(--ubc-gold);
+  }
+  
+  /* === Base === */
+  * { box-sizing: border-box; }
+  html, body, #root { height: 100%; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(1200px 500px at 20% -10%, rgba(0,85,184,0.18), transparent 55%),
+      radial-gradient(1000px 420px at 100% -10%, rgba(242,193,0,0.10), transparent 52%),
+      linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 100%);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Prefer calm motion by default; respect reduced-motion */
+  :root { --transition: 160ms cubic-bezier(.2,.7,.2,1); }
+  @media (prefers-reduced-motion: reduce) {
+    :root { --transition: 0ms; }
+  }
+  
+  /* === App Layout === */
+  .app { min-height: 100%; display: flex; flex-direction: column; }
+  .container { width: min(1000px, 92%); margin: 0 auto; padding: var(--space-4) 0 var(--space-6); }
+  
+  /* === Top Nav (glassy, anchored) === */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    -webkit-backdrop-filter: blur(8px) saturate(140%);
+    backdrop-filter: blur(8px) saturate(140%);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    width: min(1000px, 92%); margin: 0 auto; height: 60px;
+  }
+  .brand {
+    font-weight: 800; letter-spacing: .2px;
+    color: white; text-decoration: none;
+  }
+  
+  /* === Typography (calm hierarchy) === */
+  .h1 { font-size: 24px; font-weight: 750; margin: 12px 0 10px; }
+  .h2 { font-size: 16px; font-weight: 700; color: var(--muted); margin: 12px 0 8px; }
+  p   { line-height: 1.6; }
+  
+  /* === Cards & Panels === */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-1);
+    transition: box-shadow var(--transition), transform var(--transition);
+  }
+  .card:hover { box-shadow: 0 10px 28px rgba(0,0,0,.40); transform: translateY(-1px); }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-2);
+  }
+  
+  /* === Buttons (primary = UBC bright blue; ghost = subtle) === */
+  .btn {
+    appearance: none; border: none; cursor: pointer;
+    border-radius: var(--radius-md);
+    padding: 11px 14px; font-weight: 750;
+    transition: transform 60ms ease, opacity var(--transition), background var(--transition), box-shadow var(--transition);
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary {
+    background: linear-gradient(180deg, var(--ubc-blue-500), #0B67D1);
+    color: #001225;
+    box-shadow: 0 6px 18px rgba(0,85,184,.35);
+  }
+  .btn-primary:hover { filter: brightness(1.05); }
+  .btn-ghost {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.05); }
+  .btn[disabled] { opacity: .55; cursor: default; box-shadow: none; }
+  
+  /* Optional: a gold-accent button when you want a standout call-to-action */
+  .btn-accent {
+    background: linear-gradient(180deg, var(--ubc-gold), #E0B600);
+    color: #1A1200;
+    box-shadow: 0 8px 18px rgba(242,193,0,.25);
+  }
+  
+  /* === Links === */
+  a { color: var(--text); text-decoration: none; }
+  a.link { color: var(--ubc-blue-300); }
+  a.link:hover { text-decoration: underline; }
+  
+  /* === Chips & Badges === */
+  .chips { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+  .chip {
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.04);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 8px 12px;
+    cursor: pointer; user-select: none;
+    transition: background var(--transition), border-color var(--transition), transform var(--transition);
+  }
+  .chip:hover { background: rgba(255,255,255,0.06); }
+  .chip.active {
+    background: linear-gradient(180deg, rgba(0,85,184,0.35), rgba(0,85,184,0.22));
+    border-color: rgba(77,163,255,0.50);
+    box-shadow: inset 0 0 0 1px rgba(77,163,255,0.25);
+  }
+  .badge {
+    display: inline-block; font-size: 12px;
+    padding: 4px 10px; border-radius: 999px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+  
+  /* === Inputs === */
+  .input, .textarea {
+    width: 100%;
+    background: rgba(8, 20, 44, 0.9);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 11px 12px;
+    transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+  }
+  .input::placeholder, .textarea::placeholder { color: #89A1BB; opacity: .8; }
+  .input:hover, .textarea:hover { background: rgba(10, 24, 52, 0.96); }
+  .textarea { min-height: 110px; resize: vertical; }
+  
+  /* === Layout helpers === */
+  .row { display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap; }
+  .row-between { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); flex-wrap: wrap; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-3); }
+  .muted { color: var(--muted); }
+  .space-top { margin-top: var(--space-4); }
+  .space-bottom { margin-bottom: var(--space-4); }
+  
+  /* === Focus & accessibility === */
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 8px;
+    box-shadow: 0 0 0 2px rgba(242,193,0,0.18);
+  }
+  
+  /* === Subtle animated emphasis (respecting reduced-motion) === */
+  .card, .chip, .btn { will-change: transform, box-shadow; }
+  
+  /* === Optional utilities === */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+  
+  /* === Responsive tweaks === */
+  @media (max-width: 420px) {
+    .nav-inner { height: 64px; }
+    .h1 { font-size: 22px; }
+  }
+
+  /* Treat a link styled as a button as "disabled" when needed */
+.btn.disabled { opacity: .5; pointer-events: none; }
+
+  
