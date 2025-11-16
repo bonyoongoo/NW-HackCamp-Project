@@ -6,7 +6,6 @@ import Chip from '../components/Chip.jsx'
 import Button from '../components/Button.jsx'
 import Badge from '../components/Badge.jsx'
 import EventCard from '../components/EventCard.jsx'
-import { summarize, suggestTags, detectLevel, findMissingFields } from '../lib/ai.js'
 import { addCustomEvent } from '../lib/custom.js'
 import { useToast } from '../components/Toaster.jsx'
 
@@ -22,60 +21,54 @@ export default function Submit() {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [faculty, setFaculty] = useState('')
-  const [level, setLevel] = useState('')
+  const [level, setLevel] = useState('beginner')
   const [tags, setTags] = useState([])
   const [location, setLocation] = useState('')
   const [start, setStart] = useState('') // datetime-local
   const [end, setEnd] = useState('')
   const [url, setUrl] = useState('')
 
-  // “AI” suggestions (client-side heuristics)
-  const [aiSummary, setAiSummary] = useState('')
-  const [aiTags, setAiTags] = useState([])
-  const [aiLevel, setAiLevel] = useState('')
-
   function toggleTag(t) {
     setTags(prev => prev.includes(t) ? prev.filter(x => x !== t) : [...prev, t])
   }
 
-  function runAI() {
-    const s = summarize(description, 2)
-    const tg = suggestTags(description, 5)
-    const lvl = detectLevel(description)
-    setAiSummary(s)
-    setAiTags(tg)
-    setAiLevel(lvl)
-    toast.info('AI suggestions generated.')
-  }
-
-  function applyAI() {
-    if (aiLevel) setLevel(aiLevel)
-    if (aiTags?.length) setTags(prev => [...new Set([...prev, ...aiTags])])
-    toast.success('Applied AI suggestions.')
-  }
-
   // Build a live preview object (same shape as feed events)
   const eventPreview = useMemo(() => {
-    const toISO = (s) => s ? new Date(s).toISOString() : undefined
+    const toISO = (s) => {
+      if (!s) return undefined
+      // Convert datetime-local (no timezone) to ISO properly
+      const dt = new Date(s)
+      return Number.isFinite(dt.getTime()) ? dt.toISOString() : undefined
+    }
     return {
       id: 'preview_' + Math.random().toString(36).slice(2),
       title: title || 'Untitled Event',
-      description: description || aiSummary || '',
+      description: description || '',
       faculty: faculty || 'All',
       tags,
-      level: level || aiLevel || 'beginner',
+      level: level || 'beginner',
       start: toISO(start),
       end: toISO(end),
       location,
       url,
-      organizer: 'Submitted via UI'
+      organizer: 'Submitted via UI',
+      isCustom: true
     }
-  }, [title, description, faculty, tags, level, start, end, url, aiSummary, aiLevel])
+  }, [title, description, faculty, tags, level, start, end, url])
 
-  const missing = findMissingFields(eventPreview)
+  // Simple validation for required fields
+  const missing = useMemo(() => {
+    const m = []
+    if (!title.trim()) m.push('title')
+    if (!faculty.trim()) m.push('faculty')
+    if (!location.trim()) m.push('location')
+    if (!start.trim()) m.push('start')
+    return m
+  }, [title, faculty, location, start])
 
   function copyJSON() {
-    const json = JSON.stringify(eventPreview, null, 2)
+    const { id: _drop, ...clean } = eventPreview
+    const json = JSON.stringify(clean, null, 2)
     navigator.clipboard.writeText(json).then(() => {
       toast.success('Event JSON copied to clipboard.')
     }, () => {
@@ -84,22 +77,19 @@ export default function Submit() {
   }
 
   function publishToFeed() {
-    // Reuse preview data; drop ephemeral preview id
-    const { id: _drop, ...clean } = eventPreview
-
     if (missing.length) {
       toast.error('Please fill: ' + missing.join(', '))
       return
     }
-
-    const saved = addCustomEvent(clean)
-    toast.success('Published to your feed: ' + (saved.title || 'Event'))
+    const { id: _drop, ...clean } = eventPreview
+    addCustomEvent(clean)
+    toast.success('Published to your feed: ' + (clean.title || 'Event'))
     nav('/feed')
   }
 
   return (
     <div>
-      <div className="h1">Submit an event (with AI assist) ✨</div>
+      <div className="h1">Submit an event</div>
 
       {/* Organizer form */}
       <Card className="space-bottom">
@@ -113,7 +103,7 @@ export default function Submit() {
         />
         <textarea
           className="textarea"
-          placeholder="Paste event description here. Include who it's for, topics, and any requirements."
+          placeholder="Event description (who it’s for, topics, requirements, etc.)"
           value={description}
           onChange={e => setDescription(e.target.value)}
         />
@@ -156,39 +146,20 @@ export default function Submit() {
         </div>
 
         <div className="row space-top">
-          <Button kind="primary" onClick={runAI}>AI Summarize & Tag</Button>
-          <Button kind="ghost" onClick={applyAI}>Apply suggestions</Button>
           <Button kind="ghost" onClick={copyJSON}>Copy JSON</Button>
           <Button kind="accent" onClick={publishToFeed}>Publish to Feed</Button>
         </div>
       </Card>
 
-      {/* AI suggestions & validation */}
-      <div className="row" style={{alignItems:'flex-start'}}>
-        <Card className="space-bottom" style={{flex:1, minWidth:280}}>
-          <div className="h2" style={{marginTop:0}}>AI suggestions</div>
-          {aiSummary ? (
-            <>
-              <p><strong>Summary:</strong> {aiSummary}</p>
-              <p><strong>Suggested level:</strong> <Badge>{aiLevel}</Badge></p>
-              <p><strong>Suggested tags:</strong> {aiTags.length ? aiTags.map(t => <Badge key={t}>#{t}</Badge>) : '—'}</p>
-              <p className="muted">Click “Apply suggestions” to merge tags/level into the form.</p>
-            </>
-          ) : (
-            <p className="muted">Paste a description above and click “AI Summarize & Tag”.</p>
-          )}
-        </Card>
-
-        <Card className="space-bottom" style={{flex:1, minWidth:280}}>
-          <div className="h2" style={{marginTop:0}}>Submission check</div>
-          {missing.length ? (
-            <p><strong>Missing:</strong> {missing.map(m => <Badge key={m}>{m}</Badge>)}</p>
-          ) : (
-            <p><strong>Looks complete ✓</strong> This event has all key fields.</p>
-          )}
-          <p className="muted">Use “Publish to Feed” to add this to your app immediately (no backend needed).</p>
-        </Card>
-      </div>
+      {/* Validation */}
+      <Card className="space-bottom">
+        <div className="h2" style={{marginTop:0}}>Submission check</div>
+        {missing.length ? (
+          <p><strong>Missing:</strong> {missing.map(m => <Badge key={m}>{m}</Badge>)}</p>
+        ) : (
+          <p><strong>Looks complete ✓</strong> This event has all key fields.</p>
+        )}
+      </Card>
 
       {/* Live preview */}
       <Card>
