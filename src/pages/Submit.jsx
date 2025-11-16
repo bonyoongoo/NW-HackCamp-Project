@@ -1,28 +1,35 @@
+// src/pages/Submit.jsx
 import { useMemo, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Card from '../components/Card.jsx'
 import Chip from '../components/Chip.jsx'
 import Button from '../components/Button.jsx'
 import Badge from '../components/Badge.jsx'
 import EventCard from '../components/EventCard.jsx'
 import { summarize, suggestTags, detectLevel, findMissingFields } from '../lib/ai.js'
+import { addCustomEvent } from '../lib/custom.js'
+import { useToast } from '../components/Toaster.jsx'
 
 const FACULTIES = ['Sauder','Engineering','Science']
 const LEVELS = ['beginner','intermediate','advanced']
 const KNOWN_TAGS = ['ai','finance','swe','entrepreneurship','workshop','hackathon','networking']
 
 export default function Submit() {
-  // Form fields (organizer fills these)
+  const nav = useNavigate()
+  const toast = useToast()
+
+  // Organizer form fields
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [faculty, setFaculty] = useState('')
   const [level, setLevel] = useState('')
   const [tags, setTags] = useState([])
   const [location, setLocation] = useState('')
-  const [start, setStart] = useState('') // datetime-local string
+  const [start, setStart] = useState('') // datetime-local
   const [end, setEnd] = useState('')
   const [url, setUrl] = useState('')
 
-  // "AI" suggestions
+  // “AI” suggestions (client-side heuristics)
   const [aiSummary, setAiSummary] = useState('')
   const [aiTags, setAiTags] = useState([])
   const [aiLevel, setAiLevel] = useState('')
@@ -38,22 +45,17 @@ export default function Submit() {
     setAiSummary(s)
     setAiTags(tg)
     setAiLevel(lvl)
+    toast.info('AI suggestions generated.')
   }
 
   function applyAI() {
-    if (aiSummary && aiSummary !== 'No description provided.') {
-      // optionally replace long description with cleaner summary at the top
-      // Here we keep both: summary is shown on card by truncation anyway.
-    }
     if (aiLevel) setLevel(aiLevel)
-    if (aiTags?.length) {
-      // merge unique
-      setTags(prev => [...new Set([...prev, ...aiTags])])
-    }
+    if (aiTags?.length) setTags(prev => [...new Set([...prev, ...aiTags])])
+    toast.success('Applied AI suggestions.')
   }
 
+  // Build a live preview object (same shape as feed events)
   const eventPreview = useMemo(() => {
-    // convert datetime-local to ISO with timezone (assume local)
     const toISO = (s) => s ? new Date(s).toISOString() : undefined
     return {
       id: 'preview_' + Math.random().toString(36).slice(2),
@@ -75,8 +77,24 @@ export default function Submit() {
   function copyJSON() {
     const json = JSON.stringify(eventPreview, null, 2)
     navigator.clipboard.writeText(json).then(() => {
-      alert('Event JSON copied to clipboard. Paste it into your dataset!')
+      toast.success('Event JSON copied to clipboard.')
+    }, () => {
+      toast.error('Could not copy. Try again.')
     })
+  }
+
+  function publishToFeed() {
+    // Reuse preview data; drop ephemeral preview id
+    const { id: _drop, ...clean } = eventPreview
+
+    if (missing.length) {
+      toast.error('Please fill: ' + missing.join(', '))
+      return
+    }
+
+    const saved = addCustomEvent(clean)
+    toast.success('Published to your feed: ' + (saved.title || 'Event'))
+    nav('/feed')
   }
 
   return (
@@ -141,6 +159,7 @@ export default function Submit() {
           <Button kind="primary" onClick={runAI}>AI Summarize & Tag</Button>
           <Button kind="ghost" onClick={applyAI}>Apply suggestions</Button>
           <Button kind="ghost" onClick={copyJSON}>Copy JSON</Button>
+          <Button kind="accent" onClick={publishToFeed}>Publish to Feed</Button>
         </div>
       </Card>
 
@@ -167,7 +186,7 @@ export default function Submit() {
           ) : (
             <p><strong>Looks complete ✓</strong> This event has all key fields.</p>
           )}
-          <p className="muted">Use “Copy JSON” to hand this to your teammate or paste into your dataset.</p>
+          <p className="muted">Use “Publish to Feed” to add this to your app immediately (no backend needed).</p>
         </Card>
       </div>
 
