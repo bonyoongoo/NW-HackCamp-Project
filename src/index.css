@@ -376,6 +376,6 @@
 @keyframes eventSlideShow {
   0%   { background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee9812?auto=format&fit=crop&w=1200&q=80'); }
   33%  { background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80'); }
-  66%  { background-image: url(''); }
-  100% { background-image: url(''); }
+  66%  { background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80'); }
+  100% { background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80'); }
 }

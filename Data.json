@@ -368,7 +368,456 @@
       "link": "https://mls.ubc.ca/events",
       "location": "AMS Nest Lounge",
       "image": "https://images.unsplash.com/photo-1509099836639-18ba3d0f8d5e?auto=format&fit=crop&w=1200&q=80"
+    }, {
+      "id": "021",
+      "name": "Data Science Career Panel",
+      "organizer": "UBC Statistics Club",
+      "date": "2025-11-18T18:00:00-08:00",
+      "difficulty": "Easy",
+      "applicationDeadline": "2025-11-15",
+      "price": "Free",
+      "type": "Panel",
+      "category": [
+        "Data Science", "Careers", "AI",
+        "Career Fairs", "Networking", "Research Opportunities"
+      ],
+      "faculty": ["Science", "BUCS"],
+      "link": "https://stat.ubc.ca/events",
+      "location": "Henry Angus Building",
+      "image": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "022",
+      "name": "Sustainability Film Screening",
+      "organizer": "UBC Environmental Club",
+      "date": "2025-10-22T19:00:00-07:00",
+      "difficulty": "Easy",
+      "applicationDeadline": "2025-10-20",
+      "price": "Free",
+      "type": "Social",
+      "category": [
+        "Environment", "Film", "Sustainability",
+        "Climate", "Social Impact", "Social"
+      ],
+      "faculty": ["All"],
+      "link": "https://env.ubc.ca/events",
+      "location": "AMS Nest Theatre",
+      "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "023",
+      "name": "Entrepreneurship Bootcamp (Sauder)",
+      "organizer": "Sauder Entrepreneurship Club",
+      "date": "2025-10-12T09:00:00-07:00",
+      "difficulty": "Easy",
+      "applicationDeadline": "2025-10-04",
+      "price": "$20",
+      "type": "Bootcamp",
+      "category": [
+        "Business", "Startup", "Entrepreneurship",
+        "Product Management", "Startups", "Workshops"
+      ],
+      "faculty": ["Sauder", "BUCS"],
+      "link": "https://www.sauder.ubc.ca/student-experience/clubs",
+      "location": "Sauder Learning Labs",
+      "image": "https://images.unsplash.com/photo-1484242857719-4b9144542727?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "024",
+      "name": "Biomedical Data Science Workshop",
+      "organizer": "UBC Biomedical Engineering",
+      "date": "2025-10-18T13:00:00-07:00",
+      "difficulty": "Hard",
+      "applicationDeadline": "2025-10-10",
+      "price": "Free",
+      "type": "Workshop",
+      "category": [
+        "Data Science", "Bioengineering",
+        "Health", "Research Opportunities", "Clean Tech"
+      ],
+      "faculty": ["Engineering", "Science", "Medicine"],
+      "link": "https://www.bme.ubc.ca/events",
+      "location": "Biomedical Engineering Lab",
+      "image": "https://images.unsplash.com/photo-1581091012184-7b0d4077f31b?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "025",
+      "name": "Nonprofit Case Competition",
+      "organizer": "UBC Social Impact Club",
+      "date": "2025-11-18T10:00:00-08:00",
+      "difficulty": "Medium",
+      "applicationDeadline": "2025-11-05",
+      "price": "$5",
+      "type": "Case Competition",
+      "category": [
+        "Social Impact", "Nonprofit", "Business",
+        "Policy", "Competitions", "Volunteering"
+      ],
+      "faculty": ["Arts", "Sauder"],
+      "link": "https://ubcsocialimpact.ca/events",
+      "location": "AMS Nest",
+      "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "026",
+      "name": "Science Case Competition",
+      "organizer": "UBC Faculty of Science",
+      "date": "2025-11-05T17:30:00-08:00",
+      "difficulty": "Medium",
+      "applicationDeadline": "2025-11-01",
+      "price": "Free",
+      "type": "Competition",
+      "category": [
+        "Science", "Problem Solving", "Team",
+        "Competitions", "Research Opportunities"
+      ],
+      "faculty": ["Science"],
+      "link": "https://science.ubc.ca/students/events/science-case-competition",
+      "location": "Hennings (HENN) 2nd Floor Hallways, UBC",
+      "image": ""
+    },
+    {
+      "id": "027",
+      "name": "UBC CIC Fall 2025 GenAI Hackathon",
+      "organizer": "UBC CIC (Cloud Innovation Centre)",
+      "date": "2025-11-12T09:00:00-08:00",
+      "difficulty": "Medium",
+      "applicationDeadline": "2025-11-02",
+      "price": "Free",
+      "type": "Hackathon",
+      "category": [
+        "AI", "Cloud", "Innovation",
+        "Hackathons", "Machine Learning", "SWE"
+      ],
+      "faculty": ["Engineering", "Computer Science", "All"],
+      "link": "https://cic.ubc.ca/ubc-cic-fall-2025-genai-hackathon/",
+      "location": "UBC (venue TBD)",
+      "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "028",
+      "name": "21st Annual Environmental Law Negotiation Competition",
+      "organizer": "UBC Law (Environmental Law Group)",
+      "date": "2025-11-07T17:00:00-08:00",
+      "difficulty": "Hard",
+      "applicationDeadline": "2025-10-24",
+      "price": "Free",
+      "type": "Competition",
+      "category": [
+        "Law", "Environmental", "Negotiation",
+        "Policy", "Climate", "Competitions"
+      ],
+      "faculty": ["Law"],
+      "link": "https://allard.ubc.ca/about-us/events-calendar/21st-annual-environmental-law-negotiation-competition",
+      "location": "Allard Hall, UBC Vancouver",
+      "image": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "029",
+      "name": "AMS Clubs Day (Fall)",
+      "organizer": "AMS UBC",
+      "date": "2025-09-10T10:00:00-07:00",
+      "difficulty": "Easy",
+      "applicationDeadline": null,
+      "price": "Free",
+      "type": "Networking / Social",
+      "category": [
+        "Networking", "Social",
+        "Social Impact", "Volunteering"
+      ],
+      "faculty": ["All"],
+      "link": "https://www.ams.ubc.ca/events/clubs-day",
+      "location": "AMS Nest + Main Mall booths",
+      "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "030",
+      "name": "GIS Workshop Series",
+      "organizer": "UBC Library Research Commons",
+      "date": "2025-10-05T13:00:00-07:00",
+      "difficulty": "Medium",
+      "applicationDeadline": null,
+      "price": "Free",
+      "type": "Workshop",
+      "category": [
+        "Data Science", "GIS", "Mapping",
+        "Workshops", "Research Opportunities"
+      ],
+      "faculty": ["Science", "Arts", "All"],
+      "link": "https://researchcommons.library.ubc.ca/",
+      "location": "UBC Koerner Library",
+      "image": "https://images.unsplash.com/photo-1501727290761-104c90d89c1d?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "031",
+      "name": "Science Co-op Info Session",
+      "organizer": "UBC Science Co-op",
+      "date": "2025-09-18T15:00:00-07:00",
+      "difficulty": "Easy",
+      "applicationDeadline": null,
+      "price": "Free",
+      "type": "Info Session",
+      "category": [
+        "Careers", "Co-op",
+        "Career Fairs", "Internships"
+      ],
+      "faculty": ["Science"],
+      "link": "https://sciencecoop.ubc.ca/students/events",
+      "location": "Hennings Building",
+      "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "032",
+      "name": "Sauder Fall Career Fair",
+      "organizer": "UBC Sauder School of Business",
+      "date": "2025-10-20T10:00:00-07:00",
+      "difficulty": "Easy",
+      "applicationDeadline": null,
+      "price": "Free",
+      "type": "Career Fair",
+      "category": [
+        "Careers", "Business", "Networking",
+        "Career Fairs", "Consulting", "Finance"
+      ],
+      "faculty": ["Sauder"],
+      "link": "https://mybcom.sauder.ubc.ca/events",
+      "location": "Henry Angus Building",
+      "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "033",
+      "name": "UBC Rec Free Week",
+      "organizer": "UBC Recreation",
+      "date": "2025-09-07T09:00:00-07:00",
+      "difficulty": "Easy",
+      "applicationDeadline": null,
+      "price": "Free",
+      "type": "Fitness / Social",
+      "category": [
+        "Social", "Health", "Wellness",
+        "Social Impact"
+      ],
+      "faculty": ["All"],
+      "link": "https://recreation.ubc.ca/free-week",
+      "location": "UBC Recreation Facilities",
+      "image": "https://images.unsplash.com/photo-1584467735871-6feea59df8b8?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "034",
+      "name": "UBC Sustainability Social",
+      "organizer": "UBC Sustainability Collective",
+      "date": "2025-10-14T17:00:00-07:00",
+      "difficulty": "Easy",
+      "applicationDeadline": null,
+      "price": "Free",
+      "type": "Networking",
+      "category": [
+        "Sustainability", "Networking",
+        "Climate", "Clean Tech", "Social Impact"
+      ],
+      "faculty": ["Land & Food Systems", "Arts", "All"],
+      "link": "https://sustain.ubc.ca/events",
+      "location": "AMS Nest",
+      "image": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "035",
+      "name": "Design & Innovation Day",
+      "organizer": "UBC Applied Science",
+      "date": "2025-04-10T10:00:00-07:00",
+      "difficulty": "Medium",
+      "applicationDeadline": null,
+      "price": "Free",
+      "type": "Showcase",
+      "category": [
+        "Engineering", "Design", "Innovation",
+        "Industrial Design", "3D Modeling", "Product Management"
+      ],
+      "faculty": ["Applied Science / Engineering"],
+      "link": "https://engineering.ubc.ca/events",
+      "location": "Fred Kaiser Building",
+      "image": "https://images.unsplash.com/photo-1540840610416-07f61420e928?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "036",
+      "name": "Intro to Web Development Bootcamp",
+      "organizer": "UBC Extended Learning",
+      "date": "2025-09-25T18:00:00-07:00",
+      "difficulty": "Easy",
+      "applicationDeadline": null,
+      "price": "$30",
+      "type": "Workshop",
+      "category": [
+        "Web", "SWE", "Programming",
+        "Web Dev", "Workshops", "UX/UI"
+      ],
+      "faculty": ["All"],
+      "link": "https://extendedlearning.ubc.ca",
+      "location": "UBC Extended Learning Centre",
+      "image": "https://images.unsplash.com/photo-1555949963-aa79dcee9812?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "037",
+      "name": "Graduate School Skills Workshop",
+      "organizer": "Graduate Pathways to Success",
+      "date": "2025-10-03T14:00:00-07:00",
+      "difficulty": "Easy",
+      "applicationDeadline": null,
+      "price": "Free",
+      "type": "Workshop",
+      "category": [
+        "Education", "Research", "Careers",
+        "Workshops", "Research Opportunities", "Study Skills"
+      ],
+      "faculty": ["Arts", "Science", "All"],
+      "link": "https://grad.ubc.ca/events",
+      "location": "Graduate Student Centre",
+      "image": "https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "038",
+      "name": "Go Global Exchange Expo",
+      "organizer": "UBC GoGlobal",
+      "date": "2025-10-16T11:00:00-07:00",
+      "difficulty": "Easy",
+      "applicationDeadline": null,
+      "price": "Free",
+      "type": "Info Session / Fair",
+      "category": [
+        "International", "Education",
+        "Networking", "Social Impact"
+      ],
+      "faculty": ["All"],
+      "link": "https://students.ubc.ca/go-global",
+      "location": "AMS Nest",
+      "image": "https://images.unsplash.com/photo-1522071822803-5a8c4f338dd9?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "039",
+      "name": "Purpose-Driven: UBC Entrepreneurs Innovating in a Changing World",
+      "organizer": "UBC Career Centre",
+      "date": "2025-11-18T17:30:00-08:00",
+      "difficulty": "Easy",
+      "applicationDeadline": null,
+      "price": "Free",
+      "type": "Panel / Networking",
+      "category": [
+        "Entrepreneurship", "Networking", "Business",
+        "Startups", "Social Impact"
+      ],
+      "faculty": ["Sauder (Business)", "All"],
+      "link": "https://students.ubc.ca/career/events-workshops",
+      "location": "UBC Vancouver Campus",
+      "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "040",
+      "name": "Managing Exam Anxiety Workshop",
+      "organizer": "UBC Faculty of Science – Student Services",
+      "date": "2025-11-24T12:00:00-08:00",
+      "difficulty": "Easy",
+      "applicationDeadline": null,
+      "price": "Free",
+      "type": "Workshop",
+      "category": [
+        "Education", "Wellness", "Study Skills",
+        "Workshops"
+      ],
+      "faculty": ["Science"],
+      "link": "https://science.ubc.ca/students/events",
+      "location": "UBC Vancouver Campus",
+      "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "041",
+      "name": "IDG 2026 Writing/Revising Bootcamp",
+      "organizer": "UBC SPARC",
+      "date": "2025-11-18T09:00:00-08:00",
+      "difficulty": "Medium",
+      "applicationDeadline": null,
+      "price": "Free",
+      "type": "Bootcamp / Workshop",
+      "category": [
+        "Research", "Writing", "Skills",
+        "Workshops", "Study Skills", "Professional Development"
+      ],
+      "faculty": ["All"],
+      "link": "https://sparc.ubc.ca/events-workshops",
+      "location": "UBC Vancouver Campus",
+      "image": "https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "042",
+      "name": "Graduate Instructional Skills Workshop",
+      "organizer": "Centre for Teaching, Learning & Technology (CTLT) – UBC",
+      "date": "2025-11-09T09:00:00-08:00",
+      "difficulty": "Medium",
+      "applicationDeadline": "2025-11-06",
+      "price": "Free",
+      "type": "Workshop",
+      "category": [
+        "Teaching Skills", "Professional Development",
+        "Workshops", "Education"
+      ],
+      "faculty": ["All"],
+      "link": "https://events.ubc.ca/event/graduate-instructional-skills-workshop-november-9-15-16-2025__trashed/2025-11-09/",
+      "location": "Irving K. Barber Learning Centre, UBC",
+      "image": "https://images.unsplash.com/photo-1521747116042-5a810fda9664?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "043",
+      "name": "UBC Farm Community Workshop – “Children’s Workshops”",
+      "organizer": "Centre for Sustainable Food Systems at UBC Farm",
+      "date": "2025-11-16T10:00:00-08:00",
+      "difficulty": "Easy",
+      "applicationDeadline": null,
+      "price": "Free (student discount available)",
+      "type": "Workshop",
+      "category": [
+        "Sustainability", "Community", "Wellness",
+        "Climate", "Social Impact", "Workshops"
+      ],
+      "faculty": ["All"],
+      "link": "https://events.ubc.ca/event/ubc-farm-community-workshops-fall-series/2025-11-16/",
+      "location": "UBC Farm, Vancouver",
+      "image": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "044",
+      "name": "Adult Wreath Making Workshops – UBC Botanical Garden",
+      "organizer": "UBC Botanical Garden",
+      "date": "2025-11-29T09:00:00-08:00",
+      "difficulty": "Easy",
+      "applicationDeadline": null,
+      "price": "$85 (student rate)",
+      "type": "Workshop",
+      "category": [
+        "Arts", "Crafts", "Community",
+        "Workshops", "Social"
+      ],
+      "faculty": ["All"],
+      "link": "https://botanicalgarden.ubc.ca/news-events/events-activities/2025-adult-wreath-making-workshops/",
+      "location": "UBC Botanical Garden Reception Centre",
+      "image": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "045",
+      "name": "Financial Literacy for Students – UBC Career Centre",
+      "organizer": "UBC Career Centre & Y Foundation",
+      "date": "2025-11-17T17:30:00-08:00",
+      "difficulty": "Easy",
+      "applicationDeadline": null,
+      "price": "Free",
+      "type": "Workshop",
+      "category": [
+        "Finance", "Career Skills", "Personal Development",
+        "Consulting", "Workshops"
+      ],
+      "faculty": ["All"],
+      "link": "https://students.ubc.ca/career/events-workshops",
+      "location": "Henry Angus Building, UBC",
+      "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80"
     }
-    
+  
   ]
 }
