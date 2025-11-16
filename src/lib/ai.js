@@ -10,13 +10,11 @@ const TAG_KEYWORDS = {
     hackathon: ['hackathon','hackcamp','code sprint','coding marathon'],
     networking: ['networking','mixer','meet and greet','coffee chat']
   };
-  
   const LEVEL_HINTS = {
     beginner: ['intro','101','no experience','all levels','getting started','basics','for everyone','new to'],
     intermediate: ['intermediate','some experience','prior experience','prerequisite','familiar with'],
     advanced: ['advanced','deep dive','graduate','research','theory-heavy','rigorous']
   };
-  
   export function summarize(text = '', maxSentences = 2) {
     // crude sentence split + pick the first 1-2 meaningful lines
     const sentences = text

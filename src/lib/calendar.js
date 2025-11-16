@@ -14,7 +14,6 @@ function toICSDate(d) {
   const ss   = pad(dt.getUTCSeconds());
   return `${yyyy}${mm}${dd}T${hh}${mi}${ss}Z`;
 }
-
 /* Escape characters that ICS requires */
 function escapeICS(text = '') {
   return String(text)
